@@ -6,35 +6,41 @@
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="#"> <!-- No icon -->
-    <script src="script.js" defer> </script>
+    <script src="library.js" defer> </script>
 </head>
 <body>
     <header>
         <h1>Library</h1>
-        <p>A simple book tracker. By Steve C.</p>
+        <p>A simple book tracker by Steve C.</p>
     </header>
     <main>
-        <button class="new">Add a book</button>
-        <table> 
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th>Read</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead> 
-            <tbody>
-                <td>TitleData</td>
-                <td>AuthorData</td>
-                <td>PagesData</td>
-                <td>ReadData</td>
-                <td><button>Change read status</button></td>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-            </tbody>
+        <button class="newBook">Add a book</button>
+        <div class="table">
+            <table> 
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Read</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    <tr>
+                        <td>TitleData</td>
+                        <td>AuthorData</td>
+                        <td>PagesData</td>
+                        <td>ReadData</td>
+                        <td><button>Change read status</button></td>
+                        <td><button>Edit</button></td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 </html>
