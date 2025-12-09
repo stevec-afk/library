@@ -6,15 +6,43 @@
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="#"> <!-- No icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+    rel="stylesheet" type="text/css" />
     <script src="library.js" defer> </script>
 </head>
 <body>
-    <header>
-        <h1>Library</h1>
-        <p>A simple book tracker by Steve C.</p>
-    </header>
     <main>
-        <button class="newBook">Add a book</button>
+        <div class="header"></div>
+            <h1>Library</h1>
+            <p>This is a project for The Odin Project in which I have to make a library using <em> Object Constructors</em> and <em>LocalStorage.</em></p>
+            <p>You can also view the Github repository of this project. </p>
+        </div>
+        <form>
+            <div class="formInputs">
+                <div class="formGroup">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div class="formGroup">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author">
+                </div>
+                <div class="formGroup">
+                    <label for="pages"># of pages</label>
+                    <input type="text" name="pages" id="pages">
+                </div>
+                <div class="formGroup">
+                    <label for="status">Status</label>
+                    <select name="status" id="status">
+                        <option value="read">Read</option>
+                        <option value="unread">Unread</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="submit">Submit</button>
+        </form>
         <div class="table">
             <table> 
                 <thead>
