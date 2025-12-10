@@ -8,16 +8,21 @@
     <link rel="shortcut icon" href="#"> <!-- No icon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-    rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
+    
     <script src="library.js" defer> </script>
 </head>
 <body>
     <main>
         <div class="header"></div>
-            <h1>Library</h1>
-            <p>This is a project for The Odin Project in which I have to make a library using <em> Object Constructors</em> and <em>LocalStorage.</em></p>
-            <p>You can also view the Github repository of this project. </p>
+            <h1>My Library</h1>
+            <p>This is a project for 
+                <a target="_blank" rel="noopener noreferrer" href="https://www.theodinproject.com">The Odin Project</a> 
+                in which I have to make a library using 
+                <em> Object Constructors</em> and <em>LocalStorage.</em>
+                <br>You can also view the 
+                <a target="_blank" rel="noopener noreferrer" href="">Github repository</a> of this project. 
+            </p>
         </div>
         <form>
             <div class="formInputs">
@@ -41,7 +46,7 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="submit">Submit</button>
+            <button type="submit" class="submitButton">Submit</button>
         </form>
         <div class="table">
             <table> 
@@ -62,9 +67,9 @@
                         <td>AuthorData</td>
                         <td>PagesData</td>
                         <td>ReadData</td>
-                        <td><button>Change read status</button></td>
-                        <td><button>Edit</button></td>
-                        <td><button>Delete</button></td>
+                        <td><button class="readButton">read</button></td>
+                        <td><button class="editButton"><img src="assets/edit-icon.svg"></button></td>
+                        <td><button class="deleteButton"><img src="assets/delete-icon.svg"></button></td>
                     </tr>
                 </tbody>
             </table>
