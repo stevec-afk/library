@@ -4,15 +4,33 @@ let library = [
         author: "J.R.R. Tolkein",
         pages: 1216,
         status: "read"
+    },
+    {
+        title: "Book2",
+        author: "Author2",
+        pages: 1212,
+        status: "unread"
+    },
+    {
+        title: "Book3",
+        author: "Author3",
+        pages: 1213,
+        status: "read"
+    },
+    {
+        title: "Book4",
+        author: "Author4",
+        pages: 1214,
+        status: "unread"
     }
 ];
 
 class Book {
-    constructor(author, title, pages, read){
+    constructor(title, author, pages, status){
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.read = read;
+        this.status = status;
     }
 }
 
@@ -23,7 +41,6 @@ const $status = document.querySelector("#status");
 const $form = document.querySelector("form");
 const $table = document.querySelector("table");
 const $tableBody = document.querySelector("#tableBody");
-//const $readButton = document.querySelector("");
 
 $form.addEventListener("submit", (e)  => {
     e.preventDefault();
@@ -32,13 +49,25 @@ $form.addEventListener("submit", (e)  => {
     clearForm();
 });
 
+// Click handler for delete and read status buttons
+$table.addEventListener("click", (e) => {
+    const currentBook = e.target.closest("tr").firstElementChild;
+    if (e.target.classList.contains("deleteButton")) {
+        library.splice(findBook(library, currentBook.innerText),1);
+    }
+    if (e.target.classList.contains("readButton")) {
+        changeStatus(findBook(library, currentBook.innerText));
+    }
+    updateTable();
+});
+
 function addBook() {
     const newBook = new Book($title.value, $author.value, $pages.value, $status.value);
     library.push(newBook);
 }
 
 function deleteBook(currentBook) {
-    library.splice(currentBook, currentBook + 1)
+    library.splice(currentBook, 1)
 }
 
 function changeStatus(book) {
@@ -46,6 +75,17 @@ function changeStatus(book) {
         library[book].status = "not read";
     } 
     else library[book].status = "read";
+}
+
+function findBook(libraryArray, title) {
+    if (libraryArray.length === 0 || libraryArray === null) {
+        return;
+    }
+    for (book of libraryArray) {
+        if (book.title === title) {
+            return libraryArray.indexOf(book);
+        }
+    }
 }
 
 function updateTable() {
@@ -73,5 +113,8 @@ function updateTable() {
 function clearForm() {
     $title.value = "";
     $author.value = "";
-    $pages.value = "";    
+    $pages.value = "";
+    $status.value = "read";
 }
+
+updateTable();

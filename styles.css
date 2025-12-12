@@ -126,6 +126,10 @@ button:hover {
     filter: brightness(0.90);
 }
 
+button > * {
+    pointer-events: none;
+}
+
 /* Table styles */ 
 
 table {
