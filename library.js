@@ -37,7 +37,7 @@ class Book {
 const $title = document.querySelector("#title");
 const $author = document.querySelector("#author");
 const $pages = document.querySelector("#pages");
-const $status = document.querySelector("#status"); 
+const $status = document.querySelector("#status");
 const $form = document.querySelector("form");
 const $table = document.querySelector("table");
 const $tableBody = document.querySelector("#tableBody");
@@ -50,19 +50,19 @@ $form.addEventListener("submit", (e)  => {
 });
 
 // Click handler attached to entire table because the number of buttons is variable.
-// If we attach the event handler to the buttons instead, 
+// If we attach the event handler to the buttons instead,
 // then you would need to create 2 new event handlers every time a book is added,
 // which would be bad for performance, (in theory).
 $table.addEventListener("click", (e) => {
     // Grabbing book title from current table row
     // Could use a UUID instead, but I decided not to implement that
-    const currentBook = e.target.closest("tr").firstElementChild; 
-    
+    const currentBook = e.target.closest("tr").firstElementChild;
+
     // if delete button was clicked...
     if (e.target.classList.contains("deleteButton")) {
         library.splice(findBook(library, currentBook.innerText),1);
     }
-    
+
     // if read button was clicked...
     if (e.target.classList.contains("readButton")) {
         changeStatus(findBook(library, currentBook.innerText));
@@ -77,8 +77,8 @@ function addBook() {
 
 function changeStatus(book) {
     if (library[book].status === "read") {
-        library[book].status = "not read";
-    } 
+        library[book].status = "unread";
+    }
     else library[book].status = "read";
 }
 
@@ -98,11 +98,11 @@ function findBook(libraryArray, title) {
 function updateTable() {
     $tableBody.innerHTML = "";
     library.forEach((book) => {
-        // Disclaimer: .innerHTML & .insertAdjacentHTML are considered unsafe 
-        // because the user input being inserted is not sanitized and therefore 
-        // vulnerable to XSS attacks. 
+        // Disclaimer: .innerHTML & .insertAdjacentHTML are considered unsafe
+        // because the user input being inserted is not sanitized and therefore
+        // vulnerable to XSS attacks.
         // If you are a developer, please don't do this.
-        // If this were a real app with actual users, this would need to be refactored 
+        // If this were a real app with actual users, this would need to be refactored
         // using .appendChild() instead, however this is only a demo with no users.
         // See: https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS
         const htmlBook = `
@@ -119,7 +119,7 @@ function updateTable() {
             </td>
         </tr>
         `;
-        $tableBody.insertAdjacentHTML("afterbegin", htmlBook); // Don't do this! 
+        $tableBody.insertAdjacentHTML("afterbegin", htmlBook); // Don't do this!
     });
 }
 
